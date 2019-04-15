@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "616398007830",
+    "firebase_url": "https://quotehub-afd80.firebaseio.com",
+    "project_id": "quotehub-afd80",
+    "storage_bucket": "quotehub-afd80.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:616398007830:android:178c48859d844c15",
+        "android_client_info": {
+          "package_name": "com.enzoftware.projects"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "616398007830-k8kf9kqdm2ofap2582de68ck7nc53neb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.enzoftware.projects",
+            "certificate_hash": "02df166bb753b446e093b44c14d6e267dd68de57"
+          }
+        },
+        {
+          "client_id": "616398007830-hics15namhlrr4supap06dr9jkml6c87.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD71Uj3RzYhq2_GtSX3lkOseH-bDvvGnIw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "616398007830-hics15namhlrr4supap06dr9jkml6c87.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
