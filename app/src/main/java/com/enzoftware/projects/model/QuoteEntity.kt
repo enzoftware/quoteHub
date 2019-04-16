@@ -1,4 +1,8 @@
 package com.enzoftware.projects.model
 
-class QuoteEntity {
-}
+data class QuoteEntity(
+    val id: String,
+    val authorName: String,
+    val authorId: String,
+    val text: String
+)

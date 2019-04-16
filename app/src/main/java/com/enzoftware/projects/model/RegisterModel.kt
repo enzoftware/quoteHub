@@ -1,4 +1,8 @@
 package com.enzoftware.projects.model
 
-class RegisterModel {
-}
+data class RegisterModel(
+    val username: String = "",
+    val password: String = "",
+    val repeatPassword: String = "",
+    val email: String = ""
+)
