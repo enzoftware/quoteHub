@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">Quote Hub</string>
     <string name="action_settings">Settings</string>
+    <string name="error_title">Error!</string>
+    <string name="error_message">Something went wrong :(</string>
+    <string name="accept_button_text">Ok</string>
 </resources>
