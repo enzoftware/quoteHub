@@ -1,6 +1,6 @@
 package com.enzoftware.projects.firebase.authentication
 
-class FirebaseAuthenticationManager : FirebaseAuthentication {
+class FirebaseAuthenticationInterfaceManager : FirebaseAuthenticationInterface {
 
     override fun login(email: String, password: String, onResult: (Boolean) -> Unit) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

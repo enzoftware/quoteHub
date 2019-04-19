@@ -1,6 +1,6 @@
 package com.enzoftware.projects.firebase.authentication
 
-interface FirebaseAuthentication {
+interface FirebaseAuthenticationInterface {
     fun login(email: String, password: String, onResult: (Boolean) -> Unit)
     fun getUserId(): String
     fun getUserName(): String
