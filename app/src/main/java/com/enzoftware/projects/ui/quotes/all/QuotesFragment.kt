@@ -1,4 +1,4 @@
-package com.enzoftware.projects.ui.quotes
+package com.enzoftware.projects.ui.quotes.all
 
 
 import android.os.Bundle
