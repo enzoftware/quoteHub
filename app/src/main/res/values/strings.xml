@@ -7,4 +7,18 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_quote_text">Add quote</string>
+    <string name="quote_hint">Insert your quote</string>
+    <string name="email_hint">Insert your email</string>
+    <string name="password_hint">Insert your password</string>
+    <string name="log_in_button">Login</string>
+    <string name="my_profile_title">Profile</string>
+    <string name="favorite_jokes_title">Favorites</string>
+    <string name="all_jokes_title">Quotes</string>
+    <string name="repeat_password_hint">Repeat your password</string>
+    <string name="username_hint">Insert your username</string>
+    <string name="register_button">Register</string>
+    <string name="welcome_description">QuoteHub is an amazing club for writers</string>
+    <string name="log_out_button">Logout</string>
+    <string name="no_items_text">No Items</string>
 </resources>
