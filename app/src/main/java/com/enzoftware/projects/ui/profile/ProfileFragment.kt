@@ -5,20 +5,32 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.enzoftware.projects.R
+import com.enzoftware.projects.di.profilePresenter
 import com.enzoftware.projects.ui.base.BaseFragment
+import com.enzoftware.projects.ui.profile.view.ProfileView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
+class ProfileFragment : BaseFragment(), ProfileView {
 
-/**
- * A simple [Fragment] subclass.
- *
- */
-class ProfileFragment : BaseFragment() {
+
+    private val presenter by lazy { profilePresenter() }
+
+    override fun showUsername(username: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showEmail(email: String) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showNumberOfJokes(jokes: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun openWelcome() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
