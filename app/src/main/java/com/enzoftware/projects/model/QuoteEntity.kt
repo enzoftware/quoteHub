@@ -5,5 +5,5 @@ data class QuoteEntity(
     val authorName: String,
     val authorId: String,
     val text: String,
-    var isFavorite: Boolean
+    var isFavorite: Boolean = false
 )
