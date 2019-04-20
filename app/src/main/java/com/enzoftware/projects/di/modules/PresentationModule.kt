@@ -27,18 +27,17 @@ abstract class PresentationModule {
     abstract fun registerPresenter(registerPresenter: RegisterPresenterImpl): RegisterPresenter
 
     @Binds
-    abstract fun allQuotesPresenter(allQuotesPresenter: AllQuotesPresenterImpl): AllQuotesPresenter
+    abstract fun allQuotesPresenter(allJokesPresenterImpl: AllQuotesPresenterImpl): AllQuotesPresenter
 
     @Binds
-    abstract fun favoritesQuotesPresenter(favoritesQuotesPresenter: FavoritesQuotesPresenterImpl): FavoritesQuotesPresenter
+    abstract fun favoriteQuotesPresenter(favoriteJokesPresenterImpl: FavoritesQuotesPresenterImpl): FavoritesQuotesPresenter
 
     @Binds
-    abstract fun profilePresenter(profilePresenter: ProfilePresenterImpl): ProfilePresenter
+    abstract fun profilePresenter(profilePresenterImpl: ProfilePresenterImpl): ProfilePresenter
 
     @Binds
-    abstract fun addQuotePresenter(addQuotePresenter: AddQuotePresenterImpl): AddQuotePresenter
+    abstract fun addQuotePresenter(addJokePresenterImpl: AddQuotePresenterImpl): AddQuotePresenter
 
     @Binds
-    abstract fun welcomePresenter(welcomePresenter: WelcomePresenterImpl): WelcomePresenter
-
+    abstract fun welcomePresenter(welcomePresenterImpl: WelcomePresenterImpl): WelcomePresenter
 }

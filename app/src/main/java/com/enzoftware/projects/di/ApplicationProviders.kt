@@ -14,6 +14,6 @@ fun favoriteQuotesPresenter() = component().favoriteQuotesPresenter()
 
 fun profilePresenter() = component().profilePresenter()
 
-fun addJokePresenter() = component().addQuotePresenter()
+fun addQuotePresenter() = component().addQuotePresenter()
 
 fun welcomePresenter() = component().welcomePresenter()
