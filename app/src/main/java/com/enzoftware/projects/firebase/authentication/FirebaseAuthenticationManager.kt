@@ -1,6 +1,8 @@
 package com.enzoftware.projects.firebase.authentication
 
-class FirebaseAuthenticationInterfaceManager : FirebaseAuthenticationInterface {
+import javax.inject.Inject
+
+class FirebaseAuthenticationManager @Inject constructor() : FirebaseAuthenticationInterface {
 
     override fun login(email: String, password: String, onResult: (Boolean) -> Unit) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

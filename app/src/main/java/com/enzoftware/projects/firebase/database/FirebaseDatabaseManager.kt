@@ -2,8 +2,9 @@ package com.enzoftware.projects.firebase.database
 
 import com.enzoftware.projects.model.QuoteEntity
 import com.enzoftware.projects.model.UserEntity
+import javax.inject.Inject
 
-class FirebaseDatabaseInterfaceManager : FirebaseDatabaseInterface {
+class FirebaseDatabaseManager @Inject constructor() : FirebaseDatabaseInterface {
 
     override fun listenToQuotes(onResult: (QuoteEntity) -> Unit) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
