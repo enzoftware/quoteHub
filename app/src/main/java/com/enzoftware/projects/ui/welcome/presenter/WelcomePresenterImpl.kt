@@ -1,15 +1,23 @@
 package com.enzoftware.projects.ui.welcome.presenter
 
+import com.enzoftware.projects.firebase.authentication.FirebaseAuthenticationInterface
 import com.enzoftware.projects.ui.welcome.view.WelcomeView
+import javax.inject.Inject
 
-class WelcomePresenterImpl : WelcomePresenter {
+class WelcomePresenterImpl @Inject constructor(
+    private val authenticationInterface: FirebaseAuthenticationInterface
+) : WelcomePresenter {
+
+    private lateinit var view: WelcomeView
 
     override fun viewReady() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        if (authenticationInterface.getUserId().isNotBlank()) {
+            view.startMainScreen()
+        }
     }
 
     override fun setView(view: WelcomeView) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.view = view
     }
 
 }
