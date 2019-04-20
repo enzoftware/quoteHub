@@ -10,7 +10,7 @@ class HomeActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_home)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
