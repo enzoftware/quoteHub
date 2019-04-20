@@ -8,7 +8,7 @@ interface AllQuotesPresenter : BasePresenter<AllQuotesView> {
 
     fun viewReady()
 
-    fun getAllJokes()
+    fun getAllQuotes()
 
     fun onFavoriteButtonTapped(quote: QuoteEntity)
 

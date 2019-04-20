@@ -1,24 +1,32 @@
 package com.enzoftware.projects.ui.quotes.all.presenter
 
+import com.enzoftware.projects.firebase.authentication.FirebaseAuthenticationInterface
+import com.enzoftware.projects.firebase.database.FirebaseDatabaseInterface
 import com.enzoftware.projects.model.QuoteEntity
 import com.enzoftware.projects.ui.quotes.all.view.AllQuotesView
+import javax.inject.Inject
 
-class AllQuotesPresenterImpl : AllQuotesPresenter {
+class AllQuotesPresenterImpl @Inject constructor(
+    private val databaseInterface: FirebaseDatabaseInterface,
+    private val authenticationInterface: FirebaseAuthenticationInterface
+) : AllQuotesPresenter {
+
+    private lateinit var view: AllQuotesView
 
     override fun viewReady() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        getAllQuotes()
     }
 
-    override fun getAllJokes() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun getAllQuotes() {
+        databaseInterface.listenToQuotes { view.addQuote(it) }
     }
 
     override fun onFavoriteButtonTapped(quote: QuoteEntity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        databaseInterface.changeQuoteFavoriteStatus(authenticationInterface.getUserId(), quote)
     }
 
     override fun setView(view: AllQuotesView) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.view = view
     }
 
 

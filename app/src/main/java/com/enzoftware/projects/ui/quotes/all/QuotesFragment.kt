@@ -5,20 +5,33 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import com.enzoftware.projects.R
+import com.enzoftware.projects.di.allQuotesPresenter
+import com.enzoftware.projects.model.QuoteEntity
 import com.enzoftware.projects.ui.base.BaseFragment
+import com.enzoftware.projects.ui.quotes.all.view.AllQuotesView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- *
- */
-class QuotesFragment : BaseFragment() {
+class QuotesFragment : BaseFragment(), AllQuotesView {
+
+
+    override fun showNoDataDescription() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun hideNoDataDescription() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun addQuote(quote: QuoteEntity) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun setFavoriteQuoteIds(favoriteQuotesIds: List<String>) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    private val presenter by lazy { allQuotesPresenter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
