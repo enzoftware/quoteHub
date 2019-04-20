@@ -1,14 +1,47 @@
 package com.enzoftware.projects.common
 
-const val MIN_CREDENTIAL_LENGTH = 6
-const val MIN_JOKE_LENGTH = 10
+import android.text.Editable
+import android.text.TextWatcher
+import android.view.View
+import android.widget.EditText
+import androidx.viewpager.widget.ViewPager
 
-fun isPasswordValid(password: String) = password.length >= MIN_CREDENTIAL_LENGTH
+inline fun EditText.onTextChanged(crossinline onTextChangedHandler: (String?) -> Unit) {
+    addTextChangedListener(object : TextWatcher {
+        override fun afterTextChanged(s: Editable?) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
 
-fun isUsernameValid(username: String) = username.length >= MIN_CREDENTIAL_LENGTH
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
 
-fun arePasswordsSame(password: String, repeatPassword: String) = isPasswordValid(password) &&
-        isPasswordValid(repeatPassword) &&
-        password == repeatPassword
+        override fun onTextChanged(input: CharSequence?, start: Int, before: Int, count: Int) {
+            onTextChangedHandler(input?.toString() ?: "")
+        }
 
-fun isValidJoke(jokeText: String) = jokeText.length >= MIN_JOKE_LENGTH
+    })
+}
+
+inline fun View.onClick(crossinline onClickHandler: () -> Unit) {
+    setOnClickListener { onClickHandler() }
+}
+
+
+inline fun ViewPager.onPageChange(crossinline onPageChangeHandler: (Int) -> Unit) {
+    addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
+        override fun onPageScrollStateChanged(state: Int) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        }
+
+        override fun onPageSelected(position: Int) {
+            return onPageChangeHandler(position)
+        }
+
+    })
+}
+

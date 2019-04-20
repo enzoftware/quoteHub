@@ -21,4 +21,8 @@
     <string name="welcome_description">QuoteHub is an amazing club for writers</string>
     <string name="log_out_button">Logout</string>
     <string name="no_items_text">No Items</string>
+    <string name="username_error">Username error</string>
+    <string name="email_error">Email error</string>
+    <string name="password_error">Password error</string>
+    <string name="repeat_password_error">Repeat password error</string>
 </resources>
