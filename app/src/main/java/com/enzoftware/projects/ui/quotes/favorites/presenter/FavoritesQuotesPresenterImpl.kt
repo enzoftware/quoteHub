@@ -1,20 +1,45 @@
 package com.enzoftware.projects.ui.quotes.favorites.presenter
 
+import com.enzoftware.projects.firebase.authentication.FirebaseAuthenticationInterface
+import com.enzoftware.projects.firebase.database.FirebaseDatabaseInterface
 import com.enzoftware.projects.model.QuoteEntity
 import com.enzoftware.projects.ui.quotes.favorites.view.FavoriteQuoteView
+import javax.inject.Inject
 
-class FavoritesQuotesPresenterImpl : FavoritesQuotesPresenter {
+class FavoritesQuotesPresenterImpl @Inject constructor(
+    private val databaseInterface: FirebaseDatabaseInterface,
+    private val authenticationInterface: FirebaseAuthenticationInterface
+) : FavoritesQuotesPresenter {
+
+    private lateinit var view: FavoriteQuoteView
 
     override fun getFavoritesQuotes() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val id = authenticationInterface.getUserId()
+
+        databaseInterface.getFavoritesQuotes(id) {
+            it.forEach {
+                it.isFavorite = true
+            }
+            displayItems(it)
+        }
     }
 
     override fun onFavoriteButtonTapped(quote: QuoteEntity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        databaseInterface.changeQuoteFavoriteStatus(authenticationInterface.getUserId(), quote)
     }
 
     override fun setView(view: FavoriteQuoteView) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        this.view = view
+    }
+
+    private fun displayItems(items: List<QuoteEntity>) {
+        if (items.isEmpty()) {
+            view.clearItems()
+            view.showNoDataDescription()
+        } else {
+            view.hideNoDataDescription()
+            view.showFavoriteQuotes(items)
+        }
     }
 
 }
