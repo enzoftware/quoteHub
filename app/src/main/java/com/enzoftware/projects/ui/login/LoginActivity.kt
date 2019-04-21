@@ -2,7 +2,7 @@ package com.enzoftware.projects.ui.login
 
 import android.os.Bundle
 import com.enzoftware.projects.R
-import com.enzoftware.projects.di.loginPresenter
+import com.enzoftware.projects.loginPresenter
 import com.enzoftware.projects.ui.base.BaseActivity
 import com.enzoftware.projects.ui.login.view.LoginView
 

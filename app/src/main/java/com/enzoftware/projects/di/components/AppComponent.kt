@@ -14,7 +14,7 @@ import javax.inject.Singleton
 
 @Component(modules = [PresentationModule::class])
 @Singleton
-interface ApplicationComponent {
+interface AppComponent {
 
     fun registerPresenter(): RegisterPresenter
 

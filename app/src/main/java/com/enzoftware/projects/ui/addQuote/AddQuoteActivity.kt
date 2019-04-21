@@ -2,7 +2,7 @@ package com.enzoftware.projects.ui.addQuote
 
 import android.os.Bundle
 import com.enzoftware.projects.R
-import com.enzoftware.projects.di.addQuotePresenter
+import com.enzoftware.projects.addQuotePresenter
 import com.enzoftware.projects.ui.addQuote.view.AddQuoteView
 import com.enzoftware.projects.ui.base.BaseActivity
 

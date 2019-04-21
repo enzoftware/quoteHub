@@ -3,7 +3,7 @@ package com.enzoftware.projects.ui.register
 import android.os.Bundle
 import com.enzoftware.projects.R
 import com.enzoftware.projects.common.onTextChanged
-import com.enzoftware.projects.di.registerPresenter
+import com.enzoftware.projects.registerPresenter
 import com.enzoftware.projects.ui.base.BaseActivity
 import com.enzoftware.projects.ui.register.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*

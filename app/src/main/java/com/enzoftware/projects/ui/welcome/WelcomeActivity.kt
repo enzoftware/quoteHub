@@ -4,11 +4,11 @@ import android.content.Intent
 import android.os.Bundle
 import com.enzoftware.projects.R
 import com.enzoftware.projects.common.onClick
-import com.enzoftware.projects.di.welcomePresenter
 import com.enzoftware.projects.ui.base.BaseActivity
 import com.enzoftware.projects.ui.login.LoginActivity
 import com.enzoftware.projects.ui.register.RegisterActivity
 import com.enzoftware.projects.ui.welcome.view.WelcomeView
+import com.enzoftware.projects.welcomePresenter
 import kotlinx.android.synthetic.main.activity_welcome.*
 
 class WelcomeActivity : BaseActivity(), WelcomeView {

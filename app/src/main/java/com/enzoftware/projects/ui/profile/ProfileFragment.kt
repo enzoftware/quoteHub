@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.enzoftware.projects.R
-import com.enzoftware.projects.di.profilePresenter
+import com.enzoftware.projects.profilePresenter
 import com.enzoftware.projects.ui.base.BaseFragment
 import com.enzoftware.projects.ui.profile.view.ProfileView
 
@@ -16,19 +16,15 @@ class ProfileFragment : BaseFragment(), ProfileView {
     private val presenter by lazy { profilePresenter() }
 
     override fun showUsername(username: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showEmail(email: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun showNumberOfJokes(jokes: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun showNumberOfQuotes(jokes: Int) {
     }
 
     override fun openWelcome() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
 

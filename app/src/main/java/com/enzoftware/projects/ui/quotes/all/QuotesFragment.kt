@@ -6,13 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.enzoftware.projects.R
-import com.enzoftware.projects.di.allQuotesPresenter
+import com.enzoftware.projects.allQuotesPresenter
 import com.enzoftware.projects.model.QuoteEntity
 import com.enzoftware.projects.ui.base.BaseFragment
 import com.enzoftware.projects.ui.quotes.all.view.AllQuotesView
+import com.enzoftware.projects.ui.quotes.favorites.list.QuoteAdapter
 
 
 class QuotesFragment : BaseFragment(), AllQuotesView {
+
+
+    private val presenter by lazy { allQuotesPresenter() }
+    private val adapter by lazy { QuoteAdapter(presenter::onFavoriteButtonTapped) }
 
 
     override fun showNoDataDescription() {
@@ -30,8 +35,6 @@ class QuotesFragment : BaseFragment(), AllQuotesView {
     override fun setFavoriteQuoteIds(favoriteQuotesIds: List<String>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
-
-    private val presenter by lazy { allQuotesPresenter() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

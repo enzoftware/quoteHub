@@ -1,6 +1,4 @@
-package com.enzoftware.projects.di
-
-import com.enzoftware.projects.QuoteHubApp
+package com.enzoftware.projects
 
 private fun component() = QuoteHubApp.component
 

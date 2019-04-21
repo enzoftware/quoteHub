@@ -9,7 +9,7 @@ import com.enzoftware.projects.model.QuoteEntity
 class QuoteAdapter(private val onFavoriteClickHandler: (QuoteEntity) -> Unit) : RecyclerView.Adapter<QuoteHolder>() {
 
     private val items = mutableListOf<QuoteEntity>()
-    private val favoriteJokesIds = mutableListOf<String>()
+    private val favoriteQuotesIds = mutableListOf<String>()
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuoteHolder {
@@ -23,7 +23,7 @@ class QuoteAdapter(private val onFavoriteClickHandler: (QuoteEntity) -> Unit) : 
 
     override fun onBindViewHolder(holder: QuoteHolder, position: Int) {
         val quote = items[position].apply {
-            isFavorite = id in favoriteJokesIds
+            isFavorite = id in favoriteQuotesIds
         }
 
         holder.displayData(quote)
@@ -34,9 +34,9 @@ class QuoteAdapter(private val onFavoriteClickHandler: (QuoteEntity) -> Unit) : 
         notifyItemInserted(items.size - 1)
     }
 
-    fun setFavoritesJokesIds(ids: List<String>) {
-        favoriteJokesIds.clear()
-        favoriteJokesIds.addAll(ids)
+    fun setFavoritesQuotesIds(ids: List<String>) {
+        favoriteQuotesIds.clear()
+        favoriteQuotesIds.addAll(ids)
         notifyDataSetChanged()
     }
 
