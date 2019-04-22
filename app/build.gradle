@@ -47,11 +47,11 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:16.0.3'
     implementation 'com.google.firebase:firebase-database:16.0.1'
 
-    implementation "com.google.dagger:dagger:2.21"
-    implementation "com.google.dagger:dagger-android:2.21"
-    implementation "com.google.dagger:dagger-android-support:2.21"
-    kapt "com.google.dagger:dagger-compiler:2.21"
-    kapt "com.google.dagger:dagger-android-processor:2.21"
+    implementation "com.google.dagger:dagger:2.12"
+    implementation "com.google.dagger:dagger-android:2.12"
+    implementation "com.google.dagger:dagger-android-support:2.12"
+    kapt "com.google.dagger:dagger-compiler:2.12"
+    kapt "com.google.dagger:dagger-android-processor:2.12"
 
 
     // Timber

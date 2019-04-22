@@ -2,13 +2,14 @@ package com.enzoftware.projects
 
 import android.app.Application
 import com.enzoftware.projects.di.components.AppComponent
+import com.enzoftware.projects.di.components.DaggerAppComponent
 
 class QuoteHubApp : Application() {
 
     companion object{
         lateinit var instance : QuoteHubApp
         private set
-        val component: AppComponent by lazy { DaggerAppComponent.builder.build() }
+        val component: AppComponent by lazy { DaggerAppComponent.builder().build() }
     }
 
 
