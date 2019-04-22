@@ -17,7 +17,7 @@ class ProfilePresenterImpl @Inject constructor(
             val userId = authenticationInterface.getUserId()
             view.showUsername(it.username)
             view.showEmail(it.email)
-            view.showNumberOfJokes(it.quotes.count { it.authorId == userId })
+            view.showNumberOfQuotes(it.quotes.count { it.authorId == userId })
 
         }
     }
