@@ -29,4 +29,6 @@ class WelcomeActivity : BaseActivity(), WelcomeView {
         registerButton.onClick { startActivity(Intent(this, RegisterActivity::class.java)) }
         loginButton.onClick { startActivity(Intent(this, LoginActivity::class.java)) }
     }
+
+
 }

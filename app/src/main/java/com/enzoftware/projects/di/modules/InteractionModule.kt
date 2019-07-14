@@ -1,6 +1,5 @@
 package com.enzoftware.projects.di.modules
 
-
 import com.enzoftware.projects.firebase.authentication.FirebaseAuthenticationInterface
 import com.enzoftware.projects.firebase.authentication.FirebaseAuthenticationManager
 import com.enzoftware.projects.firebase.database.FirebaseDatabaseInterface
