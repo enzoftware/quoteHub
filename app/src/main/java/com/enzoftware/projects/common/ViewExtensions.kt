@@ -8,18 +8,11 @@ import androidx.viewpager.widget.ViewPager
 
 inline fun EditText.onTextChanged(crossinline onTextChangedHandler: (String?) -> Unit) {
     addTextChangedListener(object : TextWatcher {
-        override fun afterTextChanged(s: Editable?) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
-
-        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
-
+        override fun afterTextChanged(s: Editable?) = Unit
+        override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) = Unit
         override fun onTextChanged(input: CharSequence?, start: Int, before: Int, count: Int) {
             onTextChangedHandler(input?.toString() ?: "")
         }
-
     })
 }
 
@@ -30,18 +23,9 @@ inline fun View.onClick(crossinline onClickHandler: () -> Unit) {
 
 inline fun ViewPager.onPageChange(crossinline onPageChangeHandler: (Int) -> Unit) {
     addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
-        override fun onPageScrollStateChanged(state: Int) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
-
-        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
-            TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-        }
-
-        override fun onPageSelected(position: Int) {
-            return onPageChangeHandler(position)
-        }
-
+        override fun onPageScrollStateChanged(state: Int) = Unit
+        override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) = Unit
+        override fun onPageSelected(position: Int) = onPageChangeHandler(position)
     })
 }
 
