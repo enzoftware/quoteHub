@@ -1,31 +1,50 @@
 package com.enzoftware.projects.ui.home
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import com.enzoftware.projects.R
+import com.enzoftware.projects.common.onClick
+import com.enzoftware.projects.common.onPageChange
+import com.enzoftware.projects.ui.addQuote.AddQuoteActivity
 import com.enzoftware.projects.ui.base.BaseActivity
+import com.enzoftware.projects.ui.profile.ProfileFragment
+import com.enzoftware.projects.ui.quotes.all.QuotesFragment
+import com.enzoftware.projects.ui.quotes.favorites.FavoritesQuotesFragment
+import kotlinx.android.synthetic.main.activity_home.*
 
 class HomeActivity : BaseActivity() {
+
+    companion object {
+        fun getLaunchIntent(from: Context) = Intent(from, HomeActivity::class.java).apply {
+            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
+        initUi()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_main, menu)
-        return true
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        return when (item.itemId) {
-            R.id.action_settings -> true
-            else -> super.onOptionsItemSelected(item)
+    private fun initUi() {
+        val adapter = HomePagerAdapter(supportFragmentManager)
+        adapter.setPages(listOf(QuotesFragment(), FavoritesQuotesFragment(), ProfileFragment()))
+        mainPager.adapter = adapter
+        mainPager.offscreenPageLimit = 3
+        bottomNavigation.setOnNavigationItemReselectedListener {
+            switchNavigationTab(it.order)
+            true
+        }
+        mainPager.onPageChange { position ->
+            val item = bottomNavigation.menu.getItem(position)
+            bottomNavigation.selectedItemId = item.itemId
+        }
+        addQuote.onClick {
+            startActivity(Intent(this, AddQuoteActivity::class.java))
         }
     }
+
+    private fun switchNavigationTab(position: Int) = mainPager.setCurrentItem(position, true)
+
 }
