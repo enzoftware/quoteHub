@@ -3,8 +3,10 @@ package com.enzoftware.projects.ui.register
 import android.os.Bundle
 import com.enzoftware.projects.R
 import com.enzoftware.projects.common.onTextChanged
+import com.enzoftware.projects.common.showGeneralError
 import com.enzoftware.projects.registerPresenter
 import com.enzoftware.projects.ui.base.BaseActivity
+import com.enzoftware.projects.ui.home.HomeActivity
 import com.enzoftware.projects.ui.register.view.RegisterView
 import kotlinx.android.synthetic.main.activity_register.*
 
@@ -13,12 +15,10 @@ class RegisterActivity : BaseActivity(), RegisterView {
     private val presenter by lazy { registerPresenter() }
 
     override fun onRegisterSuccess() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        startActivity(HomeActivity.getLaunchIntent(this))
     }
 
-    override fun showSignUpError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun showSignUpError() = showGeneralError(this)
 
     override fun showUsernameError() {
         usernameInput.error = getString(R.string.username_error)

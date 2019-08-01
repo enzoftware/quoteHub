@@ -3,31 +3,42 @@ package com.enzoftware.projects.ui.addQuote
 import android.os.Bundle
 import com.enzoftware.projects.R
 import com.enzoftware.projects.addQuotePresenter
+import com.enzoftware.projects.common.onClick
+import com.enzoftware.projects.common.onTextChanged
+import com.enzoftware.projects.common.showGeneralError
 import com.enzoftware.projects.ui.addQuote.view.AddQuoteView
 import com.enzoftware.projects.ui.base.BaseActivity
+import kotlinx.android.synthetic.main.activity_add_quote.*
 
 class AddQuoteActivity : BaseActivity(), AddQuoteView {
 
     private val presenter by lazy { addQuotePresenter() }
 
-    override fun onQuoteAdd() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun onQuoteAdd() = finish()
 
-    override fun showAddQuoteError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-    }
+    override fun showAddQuoteError() = showGeneralError(this)
 
     override fun showQouteError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        quoteDescription.error = getString(R.string.quote_error)
     }
 
     override fun removeQuoteError() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        quoteDescription.error = null
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_quote)
+        presenter.setView(this)
+        initUi()
+    }
+
+    private fun initUi() {
+        quoteDescription.onTextChanged {
+            presenter.onQuoteTextChanged(it!!)
+        }
+        addQuote.onClick {
+            presenter.addQuote()
+        }
     }
 }
