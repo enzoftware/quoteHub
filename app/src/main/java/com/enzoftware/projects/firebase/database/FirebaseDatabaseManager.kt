@@ -30,15 +30,48 @@ class FirebaseDatabaseManager @Inject constructor(private val database: Firebase
     }
 
     override fun addNewQuote(quoteEntity: QuoteEntity, onResult: (Boolean) -> Unit) {
-
+        val newQuoteReference = database.reference.child(KEY_QUOTE).push()
+        val newQuote = quoteEntity.copy(id = newQuoteReference.key!!)
+        newQuoteReference.setValue(newQuote).addOnCompleteListener {
+            onResult(it.isSuccessful && it.isComplete)
+        }
     }
 
     override fun getFavoritesQuotes(userId: String, onResult: (List<QuoteEntity>) -> Unit) {
+        database.reference
+            .child(KEY_USER)
+            .child(userId)
+            .child(KEY_FAV)
+            .addValueEventListener(object : ValueEventListener {
+                override fun onCancelled(error: DatabaseError) = onResult(listOf())
 
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    snapshot.run {
+                        val jokes = children.mapNotNull { it.getValue(QuoteResponse::class.java) }
+                        onResult(jokes.map(QuoteResponse::mapToQuote))
+                    }
+                }
+            })
     }
 
     override fun changeQuoteFavoriteStatus(userId: String, quoteEntity: QuoteEntity) {
+        val reference = database.reference
+            .child(KEY_USER)
+            .child(userId)
+            .child(KEY_FAV)
+            .child(quoteEntity.id)
 
+        reference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onCancelled(p0: DatabaseError) {}
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val oldQuote = snapshot.getValue(QuoteResponse::class.java)
+                if (oldQuote != null) {
+                    reference.setValue(null)
+                } else {
+                    reference.setValue(quoteEntity)
+                }
+            }
+        })
     }
 
     override fun createUser(id: String, email: String, username: String) {
