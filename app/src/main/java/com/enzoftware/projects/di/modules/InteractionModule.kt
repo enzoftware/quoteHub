@@ -8,7 +8,7 @@ import dagger.Binds
 import dagger.Module
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [FirebaseModule::class])
 @Singleton
 abstract class InteractionModule {
 
