@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.enzoftware.projects.R
 import com.enzoftware.projects.allQuotesPresenter
 import com.enzoftware.projects.model.QuoteEntity
 import com.enzoftware.projects.ui.base.BaseFragment
 import com.enzoftware.projects.ui.quotes.all.view.AllQuotesView
 import com.enzoftware.projects.ui.quotes.favorites.list.QuoteAdapter
+import kotlinx.android.synthetic.main.fragment_quotes.*
 
 
 class QuotesFragment : BaseFragment(), AllQuotesView {
@@ -21,19 +23,20 @@ class QuotesFragment : BaseFragment(), AllQuotesView {
 
 
     override fun showNoDataDescription() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        noItems.visibility = View.VISIBLE
     }
 
     override fun hideNoDataDescription() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        noItems.visibility = View.GONE
     }
 
     override fun addQuote(quote: QuoteEntity) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        adapter.addQuote(quote)
+        noItems.visibility = if (adapter.itemCount != 0) View.INVISIBLE else View.VISIBLE
     }
 
     override fun setFavoriteQuoteIds(favoriteQuotesIds: List<String>) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        adapter.setFavoritesQuotesIds(favoriteQuotesIds)
     }
 
     override fun onCreateView(
@@ -42,6 +45,19 @@ class QuotesFragment : BaseFragment(), AllQuotesView {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_quotes, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initUi()
+        presenter.setView(this)
+        presenter.viewReady()
+    }
+
+    private fun initUi() {
+        quotes.layoutManager = LinearLayoutManager(activity)
+        quotes.setHasFixedSize(true)
+        quotes.adapter = adapter
     }
 
 

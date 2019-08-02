@@ -3,7 +3,6 @@ package com.enzoftware.projects.ui.addQuote
 import android.os.Bundle
 import com.enzoftware.projects.R
 import com.enzoftware.projects.addQuotePresenter
-import com.enzoftware.projects.common.onClick
 import com.enzoftware.projects.common.onTextChanged
 import com.enzoftware.projects.common.showGeneralError
 import com.enzoftware.projects.ui.addQuote.view.AddQuoteView
@@ -37,7 +36,7 @@ class AddQuoteActivity : BaseActivity(), AddQuoteView {
         quoteDescription.onTextChanged {
             presenter.onQuoteTextChanged(it!!)
         }
-        addQuote.onClick {
+        addQuote.setOnClickListener {
             presenter.addQuote()
         }
     }
