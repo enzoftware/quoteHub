@@ -29,7 +29,6 @@ class LoginPresenterImpl @Inject constructor(
 
     override fun onEmailChanged(email: String) {
         loginRequest.email = email
-
         if (!isEmailValid(email)) {
             view.showEmailError()
         }
@@ -37,7 +36,6 @@ class LoginPresenterImpl @Inject constructor(
 
     override fun onPasswordChanged(password: String) {
         loginRequest.password = password
-
         if (!isPasswordValid(password)) {
             view.showPasswordError()
         }
