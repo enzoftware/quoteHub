@@ -26,4 +26,7 @@
     <string name="password_error">Password error</string>
     <string name="repeat_password_error">Repeat password error</string>
     <string name="quote_error">Each quote must have at least 10 characters</string>
+    <string name="username_text">username</string>
+    <string name="email_text">email</string>
+    <string name="number_of_quotes_text">number of quotes</string>
 </resources>

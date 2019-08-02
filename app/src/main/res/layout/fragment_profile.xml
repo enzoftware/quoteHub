@@ -43,7 +43,7 @@
                 tools:text="User email: email@mail.com" />
 
             <TextView
-                android:id="@+id/numberOfJokes"
+                android:id="@+id/numberOfQuotes"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
