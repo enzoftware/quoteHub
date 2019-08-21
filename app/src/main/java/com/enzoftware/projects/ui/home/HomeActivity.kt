@@ -32,7 +32,7 @@ class HomeActivity : BaseActivity() {
         adapter.setPages(listOf(QuotesFragment(), FavoritesQuotesFragment(), ProfileFragment()))
         mainPager.adapter = adapter
         mainPager.offscreenPageLimit = 3
-        bottomNavigation.setOnNavigationItemReselectedListener {
+        bottomNavigation.setOnNavigationItemSelectedListener {
             switchNavigationTab(it.order)
             true
         }
