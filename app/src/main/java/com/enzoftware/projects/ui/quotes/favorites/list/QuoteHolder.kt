@@ -12,6 +12,7 @@ class QuoteHolder(
     private inline val onFavoriteClickHandler: (QuoteEntity) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
 
+
     fun displayData(quote: QuoteEntity) = with(itemView) {
         favoriteButton.onClick { onFavoriteClickHandler(quote) }
 
@@ -20,7 +21,7 @@ class QuoteHolder(
         quoteDescription.text = quote.text
 
         favoriteButton.setImageResource(
-            if (quote.isFavorite) R.drawable.ic_favorite_border else R.drawable.ic_favorite_filled
+            if (quote.isFavorite) R.drawable.ic_favorite_filled else R.drawable.ic_favorite_border
         )
     }
 
